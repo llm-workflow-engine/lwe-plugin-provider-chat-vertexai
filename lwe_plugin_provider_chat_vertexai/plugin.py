@@ -5,11 +5,6 @@ from lwe.core.provider import Provider, PresetValue
 class CustomChatVertexAI(ChatVertexAI):
 
     @property
-    def _identifying_params(self):
-        """Get the identifying parameters."""
-        return {**{"model_name": self.model_name}, **self._default_params}
-
-    @property
     def _llm_type(self):
         """Return type of llm."""
         return "chat_vertexai"
