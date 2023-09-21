@@ -17,6 +17,7 @@ class ProviderChatVertexai(Provider):
     @property
     def capabilities(self):
         return {
+            "chat": True,
             'validate_models': True,
             'models': {
                 'chat-bison': {
