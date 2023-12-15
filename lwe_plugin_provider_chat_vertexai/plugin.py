@@ -1,5 +1,11 @@
 from langchain.chat_models.vertexai import ChatVertexAI
 
+# TODO: Remove this once Gemini supports system messages.
+from langchain.adapters.openai import convert_dict_to_message
+from langchain.schema.messages import SystemMessage
+# TODO: Remove this once Gemini supports system messages.
+
+
 from lwe.core.provider import Provider, PresetValue
 
 class CustomChatVertexAI(ChatVertexAI):
@@ -26,12 +32,22 @@ class ProviderChatVertexai(Provider):
                 'codechat-bison': {
                     'max_tokens': 6144,
                 },
+                'gemini-pro': {
+                    'max_tokens': 32768,
+                },
             },
         }
 
     @property
     def default_model(self):
         return 'chat-bison'
+
+    # TODO: Remove this once Gemini supports system messages.
+    def prepare_messages_for_llm_chat(self, messages):
+        messages = [convert_dict_to_message(m) for m in messages]
+        if self.get_model() == 'gemini-pro':
+            messages = [m for m in messages if not isinstance(m, SystemMessage)]
+        return messages
 
     def prepare_messages_method(self):
         return self.prepare_messages_for_llm_chat
