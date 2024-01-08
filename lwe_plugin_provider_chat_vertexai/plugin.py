@@ -1,4 +1,4 @@
-from langchain.chat_models.vertexai import ChatVertexAI
+from langchain_community.chat_models.vertexai import ChatVertexAI
 
 # TODO: Remove this once Gemini supports system messages.
 from langchain.adapters.openai import convert_dict_to_message
