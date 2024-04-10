@@ -26,14 +26,38 @@ class ProviderChatVertexai(Provider):
             "chat": True,
             'validate_models': True,
             'models': {
+                'text-bison': {
+                    'max_tokens': 8192,
+                },
+                'text-bison-32k': {
+                    'max_tokens': 32768,
+                },
+                'text-unicorn': {
+                    'max_tokens': 8192,
+                },
                 'chat-bison': {
-                    'max_tokens': 4096,
+                    'max_tokens': 8192,
+                },
+                'chat-bison-32k': {
+                    'max_tokens': 32768,
+                },
+                'code-bison': {
+                    'max_tokens': 6144,
                 },
                 'codechat-bison': {
                     'max_tokens': 6144,
                 },
-                'gemini-pro': {
+                'code-bison-32k': {
                     'max_tokens': 32768,
+                },
+                'codechat-bison-32k': {
+                    'max_tokens': 32768,
+                },
+                'gemini-1.0-pro': {
+                    'max_tokens': 32768,
+                },
+                'gemini-1.5-pro': {
+                    "max_tokens": 131072,
                 },
             },
         }
