@@ -52,7 +52,7 @@ class ProviderChatVertexai(Provider):
                 'gemini-1.0-pro': {
                     'max_tokens': 32768,
                 },
-                'gemini-1.5-pro': {
+                'gemini-1.5-pro-preview-0409': {
                     "max_tokens": 131072,
                 },
             },
