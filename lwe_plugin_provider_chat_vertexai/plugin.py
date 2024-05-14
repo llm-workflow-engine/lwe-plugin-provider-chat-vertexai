@@ -2,6 +2,8 @@ from langchain_google_vertexai import ChatVertexAI
 
 from lwe.core.provider import Provider, PresetValue
 
+DEFAULT_GOOGLE_VERTEXAI_MODEL = 'gemini-1.0-pro'
+
 
 class CustomChatVertexAI(ChatVertexAI):
 
@@ -52,15 +54,18 @@ class ProviderChatVertexai(Provider):
                 'gemini-1.0-pro': {
                     'max_tokens': 32768,
                 },
-                'gemini-1.5-pro-preview-0409': {
-                    "max_tokens": 131072,
+                'gemini-1.5-pro-preview-0514': {
+                    "max_tokens": 1048576,
+                },
+                'gemini-1.5-flash-preview-0514': {
+                    "max_tokens": 1048576,
                 },
             },
         }
 
     @property
     def default_model(self):
-        return 'chat-bison'
+        return DEFAULT_GOOGLE_VERTEXAI_MODEL
 
     def prepare_messages_method(self):
         return self.prepare_messages_for_llm_chat
