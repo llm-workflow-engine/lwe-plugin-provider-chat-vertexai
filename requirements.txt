@@ -1,1 +1,1 @@
-langchain_google_vertexai
+langchain_google_vertexai>=1.0.3
