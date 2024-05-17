@@ -85,4 +85,6 @@ class ProviderChatVertexai(Provider):
             'request_parallelism': PresetValue(int, min_value=1),
             'max_retries': PresetValue(int, min_value=1),
             'convert_system_message_to_human': PresetValue(bool),
+            "tools": None,
+            "tool_choice": None,
         }
