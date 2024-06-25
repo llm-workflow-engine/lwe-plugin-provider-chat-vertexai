@@ -30,49 +30,52 @@ class ProviderChatVertexai(Provider):
         return {
             "chat": True,
             'validate_models': True,
-            'models': {
-                'text-bison': {
-                    'max_tokens': 8192,
-                },
-                'text-bison-32k': {
-                    'max_tokens': 32768,
-                },
-                'text-unicorn': {
-                    'max_tokens': 8192,
-                },
-                'chat-bison': {
-                    'max_tokens': 8192,
-                },
-                'chat-bison-32k': {
-                    'max_tokens': 32768,
-                },
-                'code-bison': {
-                    'max_tokens': 6144,
-                },
-                'codechat-bison': {
-                    'max_tokens': 6144,
-                },
-                'code-bison-32k': {
-                    'max_tokens': 32768,
-                },
-                'codechat-bison-32k': {
-                    'max_tokens': 32768,
-                },
-                'gemini-1.0-pro': {
-                    'max_tokens': 32768,
-                },
-                'gemini-1.5-pro-preview-0514': {
-                    "max_tokens": 1048576,
-                },
-                'gemini-1.5-flash-preview-0514': {
-                    "max_tokens": 1048576,
-                },
-            },
         }
 
     @property
     def default_model(self):
         return DEFAULT_GOOGLE_VERTEXAI_MODEL
+
+    @property
+    def static_models(self):
+        return {
+            'text-bison': {
+                'max_tokens': 8192,
+            },
+            'text-bison-32k': {
+                'max_tokens': 32768,
+            },
+            'text-unicorn': {
+                'max_tokens': 8192,
+            },
+            'chat-bison': {
+                'max_tokens': 8192,
+            },
+            'chat-bison-32k': {
+                'max_tokens': 32768,
+            },
+            'code-bison': {
+                'max_tokens': 6144,
+            },
+            'codechat-bison': {
+                'max_tokens': 6144,
+            },
+            'code-bison-32k': {
+                'max_tokens': 32768,
+            },
+            'codechat-bison-32k': {
+                'max_tokens': 32768,
+            },
+            'gemini-1.0-pro': {
+                'max_tokens': 32768,
+            },
+            'gemini-1.5-pro-preview-0514': {
+                "max_tokens": 1048576,
+            },
+            'gemini-1.5-flash-preview-0514': {
+                "max_tokens": 1048576,
+            },
+        }
 
     def prepare_messages_method(self):
         return self.prepare_messages_for_llm_chat
