@@ -40,10 +40,22 @@ class ProviderChatVertexai(Provider):
     def static_models(self):
         return {
             'gemini-1.5-pro': {
-                "max_tokens": 1048576,
+                "max_tokens": 2097152,
+            },
+            'gemini-1.5-pro-001': {
+                "max_tokens": 2097152,
+            },
+            'gemini-1.5-pro-002': {
+                "max_tokens": 2097152,
             },
             'gemini-1.5-flash': {
-                "max_tokens": 1048576,
+                "max_tokens": 2097152,
+            },
+            'gemini-1.5-flash-001': {
+                "max_tokens": 2097152,
+            },
+            'gemini-1.5-flash-002': {
+                "max_tokens": 2097152,
             },
         }
 
