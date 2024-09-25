@@ -1,8 +1,9 @@
 from langchain_google_vertexai import ChatVertexAI, HarmBlockThreshold, HarmCategory
+from pydantic import Field
 
 from lwe.core.provider import Provider, PresetValue
 
-DEFAULT_GOOGLE_VERTEXAI_MODEL = 'gemini-1.0-pro'
+DEFAULT_GOOGLE_VERTEXAI_MODEL = 'gemini-1.5-pro'
 HARM_BLOCK_THRESHOLD_OPTIONS = [
     'BLOCK_NONE',
     'BLOCK_LOW_AND_ABOVE',
@@ -18,6 +19,9 @@ class CustomChatVertexAI(ChatVertexAI):
     def _llm_type(self):
         """Return type of llm."""
         return "chat_vertexai"
+
+    model_name: str = Field(default=DEFAULT_GOOGLE_VERTEXAI_MODEL)
+    """Model name to use."""
 
 
 class ProviderChatVertexai(Provider):
