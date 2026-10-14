@@ -1,3 +1,5 @@
+**Retired — no longer supported.**
+
 # LLM Workflow Engine (LWE) Chat Vertex AI Provider plugin
 
 Chat Vertex AI Provider plugin for [LLM Workflow Engine](https://github.com/llm-workflow-engine/llm-workflow-engine)
